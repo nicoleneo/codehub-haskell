@@ -233,3 +233,82 @@ Prelude> (subtract 2) 3
 ## Let and where
 * You will often see `let` and `where` used to introduce components of expressions, and they seem similar. It takes some practice to get used to the appropriate times to use each, but they are fundamentally different.
 * The contrast here is that `let` introduces an expression, so it can be used wherever you can have an expression, but `where` is a declaration and is bound to a surrounding syntactic construct.
+* `where` gives the function first, then the variables
+```haskell
+module FunctionWithWhere where
+printInc n = print plusTwo
+ where plusTwo = n + 2
+```
+* `let` defines the variables first before the function
+```haskell
+printInc2 n = let plusTwo = n + 2
+    in print plusTwo
+```
+
+### Exercises: A Head Code
+```haskell
+Prelude> let x = 5 in x
+5
+Prelude> let x = 5 in x * x
+25
+Prelude> let x = 5; y = 6 in x * y
+30
+Prelude> let x = 3; y = 1000 in x + 3
+6
+```
+
+## Chapter Exercises
+### Parenthesisation
+1. `2 + 2 * 3 - 1` `2 + (2 * 3) - 1`
+2. `(^) 10 $ 1 + 1` `(^) 10 (1 + 1)`
+3. `2 ^ 2 * 4 ^ 5 + 1` `(2 ^ 2) * (4 ^ 5) + 1`
+
+### Equivalent Expressions
+1. `1 + 1` 
+`2` Yes
+2. `10 ^ 2`
+`10 + 9 * 10` Yes
+3. `400 - 37` 
+`(-) 37 400` No, because they are not commutative
+4. `100 `div` 3` 
+`100 / 3` No, because div returns the quotient only
+5. `2 * 5 + 18`
+`2 * (5 + 18)` No, because of operator precedence
+
+### More fun with functions
+In the ghci prompt, vars are defined with the dependencies *before* and in the source file, the dependencies are defined *after*.
+```haskell
+Prelude> let z = 7
+Prelude> let y = z + 8
+Prelude> let x = y ^ 2
+Prelude> let waxOn = x * 5
+```
+1. 
+```haskell
+Prelude> 10 + waxOn
+1135
+Prelude> (+10) waxOn
+1135
+Prelude> (-) 15 waxOn
+-1110
+Prelude> (-) waxOn 15
+1110
+```
+2.
+```haskell
+Prelude> let triple x = x * 3
+```
+
+3. The result of `waxOn` is tripled.
+```haskell
+Prelude> waxOn
+1125
+Prelude> triple waxOn
+3375
+```
+
+4. See file `exercises/more-fun-with-functions/practice_4.hs`
+5. See file `exercises/more-fun-with-functions/practice_5.hs`
+6. See file `exercises/more-fun-with-functions/practice_6.hs`
+7. See file `exercises/more-fun-with-functions/practice_7.hs`
+
