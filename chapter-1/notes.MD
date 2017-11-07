@@ -1,4 +1,4 @@
-hapter 1
+# Chapter 1
 ## What is functional programming?
 * In functional programming, functions are *first-class*: they can be used as values or passed as arguments, or inputs, to yet more functions.
 * The essence of functional programming is that programs are a combination of expressions. Expressions include concrete values, variables, and also functions. Functions have a more specific definition: they are expressions that are applied to an argument or input, and once applied, can be reduced or evaluated.
