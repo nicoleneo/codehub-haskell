@@ -299,5 +299,26 @@ Prelude> "Papuchon" !! 4
      concat [tail [1, 2, 3],
              tail [4, 5, 6],
              tail [7, 8, 9]]
-     ```
-     gives b) `[2,3,5,6,8,9]`
+    ```
+gives b) `[2,3,5,6,8,9]`
+
+### Building functions
+1.
+    a) 
+    ```haskell
+    Prelude> take 16 "Curry is awesome!"
+    "Curry is awesome"
+    ```
+    b)
+    ```haskell
+    Prelude> ["Curry is awesome" !! 4]
+    "y"
+    ```
+    c)
+    ```haskell
+    Prelude> drop 9 "Curry is awesome!"
+    "awesome!"
+    ```
+2. See file `practice2.hs`
+3. See file `practice3.hs`
+4. See file `practice4.hs`
