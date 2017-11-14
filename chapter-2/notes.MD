@@ -1,4 +1,12 @@
 # Chapter 2
+* Haskell doesn’t evaluate everything to canonical or normal form by default. Instead, it only evaluates to weak head normal form (WHNF) by default. 
+* For now, we want to emphasize that Haskell’s nonstrict evaluation means not everything will get reduced to its irreducible form immediately, so this:
+`(\f -> (1, 2 + f)) 2`
+reduces to the following in WHNF:
+`(1, 2 + 2)`
+* This representation is an approximation, but the key point here
+is that `2 + 2` is not evaluated to 4 until the last possible moment.
+8 `\f` is the syntax of an anonymous function with variable `x`.
 ## Exercises: Comprehension Check
 1.
 ```haskell
